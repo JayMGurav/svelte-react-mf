@@ -1,4 +1,4 @@
-import { gql } from "apollo-server";
+const { gql } = require("apollo-server");
 
 const productTypeDef = gql`
   type Product {
@@ -19,7 +19,7 @@ const productTypeDef = gql`
   }
 
   extend type Query {
-    product: Product
+    product(id: ID!): Product
     products: [Product!]
   }
 
@@ -28,4 +28,4 @@ const productTypeDef = gql`
   }
 `;
 
-export default productTypeDef;
+module.exports = productTypeDef;

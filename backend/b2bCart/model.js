@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
   products: {
@@ -7,4 +7,4 @@ const schema = new mongoose.Schema({
 });
 
 const B2BCart = mongoose.models["cart"] || mongoose.model("cart", schema);
-export default B2BCart;
+module.exports = B2BCart;

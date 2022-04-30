@@ -1,8 +1,8 @@
-import { gql } from "apollo-server";
+const { gql } = require("apollo-server");
 
 const b2cCartTypeDef = gql`
   extend type Query {
-    getB2CCart: [CartProduct!]
+    getB2CCart(id: ID!, quantity: Int!): [CartProduct!]
   }
 
   extend type Mutation {
@@ -10,4 +10,4 @@ const b2cCartTypeDef = gql`
   }
 `;
 
-export default b2cCartTypeDef;
+module.exports = b2cCartTypeDef;
