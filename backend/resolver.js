@@ -5,6 +5,10 @@ const b2bResolvers = require("./b2bCart/resolver");
 const b2cResolvers = require("./b2cCart/resolver");
 
 const initialResolvers = {
+  CartProduct: {
+    product: async ({ product }, _args, { Product }) =>
+      await Product.findById(product).exec(),
+  },
   Query: {
     _: () => {
       return "Query";
