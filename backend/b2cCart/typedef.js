@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require("apollo-server-express");
 
 const b2cCartTypeDef = gql`
   extend type Query {
@@ -7,6 +7,10 @@ const b2cCartTypeDef = gql`
 
   extend type Mutation {
     addProductToB2CCart(id: ID!, quantity: Int!): CartProduct!
+  }
+
+  extend type Subscription {
+    b2cCartUpdated: CartProduct!
   }
 `;
 

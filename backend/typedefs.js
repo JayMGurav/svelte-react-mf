@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require("apollo-server-express");
 const { mergeTypeDefs } = require("@graphql-tools/merge");
 
 const productTypeDef = require("./products/typedef");
@@ -17,6 +17,11 @@ const initialTypeDef = gql`
 
   type Mutation {
     _: String
+  }
+
+  type Subscription {
+    b2cCartUpdated: CartProduct!
+    b2bCartUpdated: CartProduct!
   }
 `;
 
