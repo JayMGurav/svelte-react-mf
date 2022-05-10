@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "workspaces": [
+    "./b2b",
+    "./b2c",
+    "./backend"
+  ],
+  "scripts": {
+    "start": "lerna run --scope @shared-context/* --parallel start",
+    "build": "lerna run --scope @shared-context/* build",
+    "serve": "lerna run --scope @shared-context/* --parallel serve",
+    "clean": "lerna run --scope @shared-context/* --parallel clean",
+    "dev": "lerna run --scope @shared-context/* --parallel dev"
+  },
+  "devDependencies": {
+    "lerna": "3.22.1"
+  }
+}

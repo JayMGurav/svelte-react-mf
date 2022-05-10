@@ -2,7 +2,16 @@ const b2bQueryResolvers = {
   async getB2BCart(_parent, _args, { B2BCart }) {
     try {
       return await B2BCart.find({}).exec();
-    } catch (err) {}
+    } catch (err) {
+      throw new Error(err.message)
+    }
+  },
+  async getB2BCartQuantity(_parent, _args, { B2BCart }) {
+    try {
+      return await B2BCart.countDocuments({}).exec();
+    } catch (err) {
+      throw new Error(err.message)
+    }
   },
 };
 

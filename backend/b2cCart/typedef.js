@@ -3,6 +3,7 @@ const { gql } = require("apollo-server-express");
 const b2cCartTypeDef = gql`
   extend type Query {
     getB2CCart: [CartProduct!]
+    getB2CCartQuantity: Int!
   }
 
   extend type Mutation {

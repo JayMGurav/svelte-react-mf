@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0%;
+}
+
+header{
+  background-color: #fff;
+  box-shadow: 0 0 0.75rem 0.15rem rgb(26 42 52 / 50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4ch;
+}
+
+svg{
+  display: inline-block;
+  width:10em;
+  margin: 1em;
+}
+
+nav{
+  margin-left: auto;
+}
+
+
+#cartButton{
+  background:#ffea28;
+  padding-left:1em;
+  align-self: stretch;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transform: skewX(-15deg);
+  width: 80px;
+  height:80px;
+  position: relative;
+}
+#unSkewed{
+  background:#ffea28;
+  padding-right:1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+  transform: skewX(15deg);
+}
+#counter{
+  z-index:99999;
+  position: absolute;
+  top:8%;
+  right:30%;
+  width:20px;
+  height:20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007dbc;
+  border-radius: 50%;
+  color: white;
+}
+
+.product{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid #f2f2f2;
+  padding: 1em;
+  width: 300px;
+}
+.cartproduct{
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  gap:2ch;
+}
+.cartproduct p {
+  margin: 0;
+}
+
+#tooltip{
+  position: absolute;
+  top:120%;
+  right:-30%;
+  z-index: 9999999;
+  width: max-content;
+  transform: skewX(15deg);
+  box-shadow: 0 0 0.75rem 0.15rem rgba(104, 104, 104, 0.5);
+}
+#toolTipHeader{
+  background-color: #ffea28;
+  text-align:center;
+  padding:0.5em;
+  font-size: 20px;
+}
+#basket{
+  width: 400px;
+}

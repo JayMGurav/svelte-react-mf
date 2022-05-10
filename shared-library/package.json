@@ -1,0 +1,11 @@
+{
+  "name": "@shared-context/shared-library",
+  "version": "1.0.0",
+  "private":true,
+
+  "license": "MIT",
+  "main": "./src/index.js",
+  "peerDependencies": {
+    "zustand": "^4.0.0-rc.1"
+  }
+}

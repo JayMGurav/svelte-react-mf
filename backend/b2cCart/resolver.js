@@ -4,6 +4,11 @@ const b2cQueryResolvers = {
       return await B2CCart.find({}).exec();
     } catch (err) {}
   },
+  async getB2CCartQuantity(_parent, _args, { B2CCart }) {
+    try {
+      return await B2CCart.countDocuments({}).exec();
+    } catch (err) {}
+  },
 };
 
 const b2cMutationResolvers = {
