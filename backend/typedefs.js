@@ -7,6 +7,7 @@ const b2cCartTypeDef = require("./b2cCart/typedef");
 
 const initialTypeDef = gql`
   type CartProduct {
+    id: ID
     product: Product!
     quantity: Int!
   }

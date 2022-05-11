@@ -5,7 +5,7 @@
 	import { setClient } from "svelte-apollo";
 	
 	import { GET_B2C_CART, GET_B2B_CART } from "./gql/queries"
-	import {svelteZTSStore as store} from "./store";
+	import { svelteZTSStore as store } from "./store";
 	import Header from "./components/Header.svelte";
 	import ProductsList from "./components/ProductList.svelte"
 	
@@ -34,7 +34,7 @@
 
 	onMount(async () =>{
 		await getCart()
-	})
+	});
 
 	export let url = "";
 </script>

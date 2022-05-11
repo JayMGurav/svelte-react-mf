@@ -3,27 +3,39 @@ const b2bQueryResolvers = {
     try {
       return await B2BCart.find({}).exec();
     } catch (err) {
-      throw new Error(err.message)
+      throw new Error(err.message);
     }
   },
   async getB2BCartQuantity(_parent, _args, { B2BCart }) {
     try {
       return await B2BCart.countDocuments({}).exec();
     } catch (err) {
-      throw new Error(err.message)
+      throw new Error(err.message);
     }
   },
 };
 
 const b2bMutationResolvers = {
-  async addProductToB2BCart(_parent, { id, quantity }, { Product, B2BCart }) {
+  async addProductToB2BCart(
+    _parent,
+    { productId, quantity },
+    { Product, B2BCart }
+  ) {
     try {
-      if (Product.findById(id).exec()) {
-        return await B2BCart.create({ product: id, quantity });
+      if (Product.findById(productId).exec()) {
+        return await B2BCart.findOneAndUpdate(
+          { product: productId },
+          {
+            $inc: { quantity },
+          },
+          { new: true, upsert: true }
+        );
       } else {
         throw new Error("Product does not exist");
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   },
 };
 

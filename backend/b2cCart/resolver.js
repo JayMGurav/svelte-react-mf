@@ -12,14 +12,26 @@ const b2cQueryResolvers = {
 };
 
 const b2cMutationResolvers = {
-  async addProductToB2CCart(_parent, { id, quantity }, { Product, B2CCart }) {
+  async addProductToB2CCart(
+    _parent,
+    { productId, quantity },
+    { Product, B2CCart }
+  ) {
     try {
-      if (Product.findById(id).exec()) {
-        return await B2CCart.create({ product: id, quantity });
+      if (Product.findById(productId).exec()) {
+        return await B2CCart.findOneAndUpdate(
+          { product: productId },
+          {
+            $inc: { quantity },
+          },
+          { new: true, upsert: true }
+        );
       } else {
-        throw new Error("Product does not exist");
+        throw new Error("Product does not exist!");
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   },
 };
 
