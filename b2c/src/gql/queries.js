@@ -1,20 +1,22 @@
-import { gql } from '@apollo/client/core';
+import { gql } from "@apollo/client/core";
 
 export const GET_PRODUCTS = gql`
-  query GetProducts{
+  query GetProducts {
     products {
       id
       name
       brand
       price
       img
+    }
   }
-}`;
+`;
 
 export const GET_B2C_CART = gql`
-  query GetB2CCart{
+  query GetB2CCart {
     getB2CCart {
-      product{
+      id
+      product {
         id
         name
         price
@@ -24,12 +26,13 @@ export const GET_B2C_CART = gql`
       quantity
     }
   }
-`;  
+`;
 
 export const GET_B2B_CART = gql`
-  query GetB2BCart{
+  query GetB2BCart {
     getB2BCart {
-      product{
+      id
+      product {
         id
         name
         price
@@ -39,16 +42,16 @@ export const GET_B2B_CART = gql`
       quantity
     }
   }
-`;  
+`;
 
 export const GET_B2B_CART_QUANTITY = gql`
-  query GetB2BCart{
+  query GetB2BCart {
     getB2BCartQuantity
   }
-`;  
+`;
 
 export const GET_B2C_CART_QUANTITY = gql`
-  query GetB2BCart{
+  query GetB2BCart {
     getB2CCartQuantity
   }
-`;  
+`;

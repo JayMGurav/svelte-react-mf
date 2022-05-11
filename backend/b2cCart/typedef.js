@@ -8,6 +8,7 @@ const b2cCartTypeDef = gql`
 
   extend type Mutation {
     addProductToB2CCart(productId: ID!, quantity: Int!): CartProduct!
+    removeProductFromB2CCart(productId: ID!): Boolean!
   }
 
   extend type Subscription {

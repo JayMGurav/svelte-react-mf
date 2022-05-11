@@ -37,6 +37,14 @@ const b2bMutationResolvers = {
       console.log(err);
     }
   },
+  async removeProductFromB2BCart(_parent, { productId }, { B2BCart }) {
+    try {
+      const deletedDoc = await B2BCart.findOneAndRemove({ product: productId });
+      return Boolean(deletedDoc);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
 
 module.exports = {
