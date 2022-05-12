@@ -17,10 +17,10 @@
     try {
       let removed = false;
       if(cartType === "b2b"){
-        const {data} = await removeProductToB2BCart({ variables: { productId, quantity } });
+        const {data} = await removeProductToB2BCart({ variables: { productId } });
         removed = data.removeProductFromB2BCart
       }else {
-        const {data} = await removeProductToB2CCart({ variables: { productId, quantity } });
+        const {data} = await removeProductToB2CCart({ variables: { productId } });
         removed = data.removeProductFromB2CCart
       }
 

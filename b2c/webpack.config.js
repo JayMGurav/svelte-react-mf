@@ -64,6 +64,8 @@ module.exports = {
       },
       exposes: {
         "./store": "./src/store",
+        "./queries":"./src/gql/queries",
+        "./mutations":"./src/gql/mutations"
       },
       shared: {
         ...deps,

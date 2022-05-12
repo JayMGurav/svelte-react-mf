@@ -58,7 +58,7 @@
 
   <label>
     Qty: 
-  <input type="number" id="quantity" name="quantity" min="1" on:change={({target}) => {quantity = Number(target.value)}} value={quantity}>
+  <input type="number" id="quantity" name="quantity" min="1" on:change={({target}) => {quantity = Number(target.value)}} value={quantity}/>
 </label>
   <button on:click={() => handleAddToClick(product.id)}>Add to cart</button>
 </div>

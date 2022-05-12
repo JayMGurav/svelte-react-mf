@@ -2,20 +2,31 @@ import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_B2B_CART } from "../gql/queries";
 import CartItem from "./CartItem";
+import cartStore from "../store";
 
 export function B2BBucketList(){
-  const { loading, error, data } = useQuery(GET_B2B_CART);
+  const {b2b, b2c} = cartStore();
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error.message}</p>;
+  // const { loading, error, data } = useQuery(GET_B2B_CART);
+
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>{error.message}</p>;
   
   return (
-    <div style={{
-      padding:'0.5rem'
-    }}>
-      {data?.getB2BCart.map((item) => <CartItem key={item.product.id} product={item.product} quantity={item.quantity}/>
-      )}
-    </div>
+    <>
+      {b2c.length > 0 && <div style={{
+        padding:'0.5rem'
+      }}>
+        {b2c.map((item) => <CartItem key={item.id} product={item.product} quantity={item.quantity}/>
+        )}
+      </div>}
+      <div style={{
+        padding:'0.5rem'
+      }}>
+        {b2b.map((item) => <CartItem key={item.id} product={item.product} quantity={item.quantity}/>
+        )}
+      </div>
+    </>
   )
 }
 

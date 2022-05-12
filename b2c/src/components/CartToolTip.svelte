@@ -26,6 +26,7 @@
     width: 400px;
   }
   #empty{
+    width: 400px;
     text-align: center;
     margin: 3em 0;
   }
@@ -35,10 +36,10 @@
   <div id="toolTipHeader">
     My Basket
   </div>
-  <div id="basket">
-    {#if !$store.b2c.length && !$store.b2c.length}
+  {#if $store.b2b.length <= 0 && $store.b2c.length <= 0}
     <div id="empty"><h3>Empty cart!</h3></div>
-    {:else}
+  {:else}
+  <div id="basket">
     {#if $store.b2c.length > 0}
     <div>
       <div style="text-align: center; margin: 0.5rem 0;">
@@ -63,8 +64,8 @@
         <CartItem product={item.product} quantity={item.quantity} cartType="b2b"/>
         {/each}
       </div>
-      </div>
-      {/if}
-      {/if}
     </div>
+    {/if}
+  </div>
+  {/if}
 </div>

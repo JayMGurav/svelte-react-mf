@@ -1,11 +1,11 @@
 import create from "zustand/vanilla";
 import zTs from "./zToStore";
-
+ 
 const cartStore = create((set) => ({
   b2b: window.b2b || [],
   b2c: window.b2c || [],
   initCart: ({ b2c, b2b }) => {
-    console.log({
+    console.log("in initCart: ",{
       b2c,
       b2b,
     });

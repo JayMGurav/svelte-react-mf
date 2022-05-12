@@ -1,24 +1,38 @@
 import React from "react";
-import {B2BBucketList} from "./B2BBucketList";
+import cartStore from "../store";
+import CartItem from "./CartItem";
 
 
-export default function CartToolTip(){
+function Cart({cartType}) {
+  const store = cartStore();
+  
+  const cart = store[cartType];
+ 
   return (
-    <div id="tooltip">
+    <div>
+      <div style={{
+        textAlign: "center",
+        margin: "1rem 0"
+      }}>
+        <strong>{cartType} cart</strong>
+      </div>
+        {cart?.map((item) => <CartItem key={item.id} product={item.product} quantity={item.quantity} cartType={cartType}/>)}
+    </div>
+  )
+}
+
+
+export default function CartToolTip({mouseEnter, mouseLeave}){
+  return (
+    <div id="tooltip" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
       <div id="toolTipHeader">
         My Basket
       </div>
       <div id="basket">
-        <div>
-          <div style={{
-            textAlign: "center",
-            margin: "0.5rem 0"
-          }}>
-            <strong>B2B cart</strong>
-          </div>
-          <B2BBucketList/>
-          </div>
+        <Cart cartType="b2c"/>
+          <hr/>
+        <Cart cartType="b2b"/>
       </div>
-</div>
+    </div>
   )
 }

@@ -8,6 +8,7 @@ export default function ProductList(){
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error.message}</p>;
 
+  
   return <div style={{
     margin: "2em",
     display: "flex",
