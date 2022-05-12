@@ -49,7 +49,8 @@ module.exports = {
       },
       exposes: {
         "./ReactApp": "./src/App.jsx",
-        "./ReactApp/B2BBucketList":"./src/components/B2BBucketList.js",
+        "./ReactApp/loader":"./src/loader",
+        "./ReactApp/B2BCart":"./src/components/Cart.js",
       },
       shared: {
         ...deps,

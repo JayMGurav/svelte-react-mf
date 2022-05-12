@@ -1,8 +1,16 @@
 <script>
+  //  import { onMount } from "svelte";
   import CartItem from "./CartItem.svelte"
 	import {svelteZTSStore as store} from "../store";
+  // import loader from "b2b/ReactApp/loader"
+  // import cart from "b2b/ReactApp/B2BCart"
   export let mouseout;
   export let mousein;
+
+  // onMount(function() {
+  //   cart();
+  // });
+
 </script>
 
 <style>
@@ -58,12 +66,18 @@
       <div style="text-align: center; margin: 0.5rem 0;">
         <strong>B2B cart</strong>
       </div>
-     <div id="b2bBucketLists"></div>
       <div style="padding:0.5rem;">
         {#each $store.b2b as item}
         <CartItem product={item.product} quantity={item.quantity} cartType="b2b"/>
         {/each}
-      </div>
+      </div> 
+  <!-- {#await import("b2b/ReactApp/B2BCart")}
+				<p>loading B2B Cart</p>
+				{:catch error}
+					<p>Something went wrong: {error.message}</p>
+			 <h1>500 :(</h1>
+					<p><b>pls start ur react server</b></p> 
+			{/await} -->
     </div>
     {/if}
   </div>

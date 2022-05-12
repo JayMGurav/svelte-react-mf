@@ -1,26 +1,7 @@
 import React from "react";
 import cartStore from "../store";
 import CartItem from "./CartItem";
-
-
-function Cart({cartType}) {
-  const store = cartStore();
-  
-  const cart = store[cartType];
- 
-  return (
-    <div>
-      <div style={{
-        textAlign: "center",
-        margin: "1rem 0"
-      }}>
-        <strong>{cartType} cart</strong>
-      </div>
-        {cart?.map((item) => <CartItem key={item.id} product={item.product} quantity={item.quantity} cartType={cartType}/>)}
-    </div>
-  )
-}
-
+import {Cart} from "./Cart"
 
 export default function CartToolTip({mouseEnter, mouseLeave}){
   return (

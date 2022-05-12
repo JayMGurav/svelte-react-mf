@@ -59,7 +59,7 @@ module.exports = {
       name: "b2c",
       filename: "remoteEntry.js",
       remotes: {
-        b2c: "b2c@http://localhost:3001/remoteEntry.js",
+        // b2c: "b2c@http://localhost:3001/remoteEntry.js",
         b2b: "b2b@http://localhost:3000/remoteEntry.js",
       },
       exposes: {
